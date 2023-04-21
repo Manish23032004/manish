@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="container">
+
+    <h2>HEALTH INSURANCE COST PREDICTION SYSTEM
+    </h2>
+   <p>Health insurance is type of insurance that
+       covers the whole or a part of the risk of a <br>
+       person incurring medical expencess
+       </p>
+       <form action="{{ url_for('predict')}}"method="post">						          
+        <div class="inputbox">
+          Age:
+          <input type="number" id="age" name="age" placeholder="Enter the Age" required="">
+          Dpendent:
+          <input type="number" id="children" name="children" placeholder="Enter your dependent no">
+          Smoker:
+          <input type="radio" value="1" name="smoker"> Yes 
+          <input type="radio" value="0"  name="smoker"> No<br><br><br><br><br><br>
+          <div>
+          BMI:
+          <input type="text" id="bmi" name="bmi" placeholder="Enter Body mass Index" required="">
+        
+          Region:
+          <select name="region" id="region" placeholder="Enter your region">
+            <option value=" ">Please select a country</option>
+            <option value="0">Northeast</option>
+            <option value="1">Northwest</option>
+            <option value="2">Southeast</option>
+            <option value="3">Southwest</option>
+          </select>
+          
+         
+          Gender:
+          <input type="radio" value="0" name="sex" id="sex"> Male
+          <input type="radio" value="1" name="sex" id="sex"> Female<br><br><br>
+  
+        
+         <div class="button"><input type="submit"value="predict" >
+         <input type="reset" value="reset"></div>
+          </div>
+  
+          {{prediction_text}}
+         </div>
+        
+        </form>
+        
+  </div>
+  <!-- style for the web -->
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        background-image: url("/templates/image/health.jpg");
+        background-size: cover;
+        height: 100vh;
+    }
+    
+    .container h2 {
+        padding-left: 500PX;
+        padding-top: 80px;
+        font-family: 'Courier New', Courier, monospace;
+        color: rgb(17, 14, 11);
+    }
+    
+    .container p {
+        padding-left: 500px;
+        font-size: medium;
+    
+    }
+    
+    .inputbox {
+        border-width: 10px;
+        width: 800px;
+        height: 300px;
+        filter: blur(-1px);
+        position: center;
+        border-radius: 10px;
+       
+        margin-left: 350px;
+        margin-top: 80px;
+        box-shadow: 10px 10px 10px 10px;
+       padding-left: 100px;
+       padding-top: 100px;
+       word-spacing: 10px;
+    }
+    .inputbox input {
+        padding: 2px;
+        border-radius: 5px;
+        word-spacing: normal;
+        background-color: transparent;
+       
+    }
+    
+    .inputbox select {
+        padding: 2px;
+        border-radius: 5px;
+        background-color: transparent;
+    }
+    
+    .button {
+        padding-left: 220px;
+        padding-bottom: 50px;
+        word-spacing: 10px;
+    
+    
+    }
+    
+    .button input {
+        background-color: transparent;
+        width: 50px;
+        background-image: radial-gradient(circle farthest-side, rgba(57, 210, 248, 1) 14% 27%,
+                rgba(55, 189, 220, 1) 40%,
+                rgba(54, 175, 202, 1) 49%, rgba(53, 156, 175, 1) 62%, rgba(48, 97, 96, 1));
+    
+    }
+    
+    button:hover {
+        background: #5cbf2a;
+    }
+    .button input:hover {
+        color: #ece7e7;
+        border-color: crimson;
+        font-style: italic;
+    }
+    
+    .inputbox input:hover {
+        border-color: crimson
+    }
+    
+    .inputbox select:hover {
+        border-color: crimson;
+    }
+    
+    .inputbox input[type="checkbox"]:hover {
+        border-color: crimson;
+    }
+    </style>
+      
+
+
+
+</body>
+</html>
